@@ -49,9 +49,10 @@ The model identifies the most stable "Optimal Version" of a strategy, prioritizi
 
 The implementation of Strategy 2 demonstrates advanced data masking. By using .mask() in conjunction with .idxmax() and .idxmin(), the code elegantly identifies the second-highest and second-lowest performers without the need for complex sorting or nested loops:
 
-``
+```
 Python
+
 data_airlines[return_columns].mask(data_airlines[return_columns].apply(lambda x: x == x.max(), axis=1)).idxmax(axis=1)
-``
+```
 
 This ensures the strategy remains focused on broader industry trends rather than being skewed by single-stock anomalies.
