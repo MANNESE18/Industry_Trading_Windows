@@ -1,0 +1,9 @@
+Industry,Strategy,Window,Sharpe,Return,Max Drawdown
+Airlines,1,15,0.72,309.38%,-66.94%
+Airlines,2,50,0.96,623.99%,-42.76%
+Banks,1,160,1.01,259.78%,-25.45%
+Banks,2,90,0.92,182.98%,-29.69%
+Oil_Gas,1,15,0.41,60.17%,-78.64%
+Oil_Gas,2,100,0.68,187.61%,-42.48%
+Homebuilders,1,120,0.93,273.08%,-33.35%
+Homebuilders,2,50,0.69,148.32%,-43.74%
