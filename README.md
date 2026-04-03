@@ -1,6 +1,6 @@
 # Multi-Industry Momentum & Reversion Backtester
 
-This repository contains a comprehensive vectorized backtesting engine designed to analyze and rank long/short equity strategies across four distinct sectors: Airlines, Banks, Oil & Gas, and Homebuilders. The tool systematically iterates through various look-back windows to identify optimal parameters for capturing mean reversion and relative strength within specific industries.
+This repository contains a comprehensive vectorized backtesting engine designed to analyze and rank long/short equity strategies across four distinct sectors: **Airlines, Banks, Oil & Gas, and Homebuilders**. The tool systematically iterates through various look-back windows to identify optimal parameters for capturing mean reversion and relative strength within specific industries.
 
 
 ## Features
@@ -18,7 +18,7 @@ This repository contains a comprehensive vectorized backtesting engine designed 
 
 * **Automated Scoring System:** Ranks strategy performance using a weighted scoring model that balances risk and reward, rather than focusing solely on raw returns.
 
-* **Comprehensive Performance Metrics:** Calculates the Sharpe Ratio, Total Cumulative Return, and Maximum Drawdown for every tested iteration.
+* **Comprehensive Performance Metrics:** Calculates the **Sharpe Ratio, Total Cumulative Return**, and **Maximum Drawdown** for every tested iteration.
 
 ## Built With
 
@@ -36,18 +36,19 @@ This repository contains a comprehensive vectorized backtesting engine designed 
 
 **1. Efficient Vectorized Look-back Testing**
 
-Instead of utilizing slow loops to simulate trades day-by-day, the engine uses vectorized operations via Pandas. By utilizing .pct_change(w) and .idxmax(), the script evaluates hundreds of look-back windows and thousands of data points in seconds, making the backtester highly scalable.
+Instead of utilizing slow loops to simulate trades day-by-day, the engine uses vectorized operations via Pandas. By utilizing `.pct_change(w)` and `.idxmax()`, the script evaluates hundreds of look-back windows and thousands of data points in seconds, making the backtester highly scalable.
 
 **2. Robust Weight-Based Ranking Logic**
 
-The code implements a sophisticated Final_Score logic that prevents "overfitting" for high returns. By applying a weighted rank:
+The code implements a sophisticated `Final_Score` logic that prevents "overfitting" for high returns. By applying a weighted rank:
 
-Score=(Sharpe Rank×0.4)+(Return Rank×0.4)+(Drawdown Rank×0.2)
+$$Score = (\text{Sharpe Rank} \times 0.4) + (\text{Return Rank} \times 0.4) + (\text{Drawdown Rank} \times 0.2)$$
+
 The model identifies the most stable "Optimal Version" of a strategy, prioritizing risk-adjusted returns (Sharpe) and capital preservation (Drawdown) alongside profitability.
 
 **3. Sophisticated Outlier Handling (Strategy 2)**
 
-The implementation of Strategy 2 demonstrates advanced data masking. By using .mask() in conjunction with .idxmax() and .idxmin(), the code elegantly identifies the second-highest and second-lowest performers without the need for complex sorting or nested loops:
+The implementation of Strategy 2 demonstrates advanced data masking. By using `.mask()` in conjunction with `.idxmax()` and `.idxmin()`, the code elegantly identifies the second-highest and second-lowest performers without the need for complex sorting or nested loops:
 
 ```
 Python
